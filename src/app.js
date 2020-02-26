@@ -4,7 +4,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 // IMPORTANT: The callback needs to be a function call vs. using a fat-arrow block. Fat-arrow is not supported yet.
 injector().inject(async function (Promise, Mongoose, UncaughtHandler, WebServer, Logger, nodeProcess, config, configLoader) {
     UncaughtHandler.listen();
-
     Logger.info(`NODE_ENV: ${nodeProcess.env.NODE_ENV}`);
     Logger.info(`PORT: ${config.Port}`);
     Logger.info(`CONFIG: ${configLoader.configName}`);
@@ -26,6 +25,8 @@ injector().inject(async function (Promise, Mongoose, UncaughtHandler, WebServer,
             if (isWebServerStarted) {
                 console.log('Server started in', process.env.MODE ? process.env.MODE : 'development', 'mode.');
             }
+        }else{
+            console.error('Error in connecting to mongodb')
         }
     } catch (err) {
         console.error('Error while connecting to mongo', err.stack || err)

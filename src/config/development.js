@@ -2,7 +2,7 @@
 
 // Development specific configuration
 // ==================================
-var ip= 'localhost',
+var ip= 'emsolution-database',
 // var ip = '208.68.39.149',
     port= '27017',
     uname = '',
@@ -22,7 +22,7 @@ module.exports = function(){
         //  uri: 'mongodb://'+uname+':'+pwd+'@'+ ip + '/'+ db
         },
 
-        host:'localhost',
+        host:'0.0.0.0',
         domain:'http://localhost:9000',
         
         Port : 9000,
